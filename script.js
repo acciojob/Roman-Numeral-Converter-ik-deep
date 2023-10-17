@@ -10,15 +10,16 @@ function convertToRoman(num) {
     };
 
   //your code here
-	   let romanNumeral = "";
-    let i = 0;
+	  if (num < 1 || num > 100000) {
+        return "Input out of range";
+    }
+	 let romanNumeral = '';
 
-    while (num > 0) {
-        while (num >= obj[i][1]) {
-            romanNumeral +=  obj[i][0];
-            num -= obj[i][1];
+    for (let key in obj) {
+        while (num >= obj[key][1]) {
+            romanNumeral += obj[key][0];
+            num -= obj[key][1];
         }
-        i++;
     }
 
     return romanNumeral;
